@@ -1,0 +1,8 @@
+{
+  "name": "Retro & Arcade Game Hub",
+  "description": "Multi-game arcade platform featuring Cyber Runner, Space Defender, Neon Snake, and Tile Fusion with synthesizer sound effects and achievement tracking.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

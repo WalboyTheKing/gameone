@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    touch-action: manipulation;
+    overflow-x: hidden;
+    background-color: #030712;
+    color: #f1f5f9;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-arcade {
+    font-family: 'Chakra Petch', sans-serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Subtle retro arcade grid pattern */
+.arcade-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(3, 7, 18, 0.9);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.35);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.65);
+}

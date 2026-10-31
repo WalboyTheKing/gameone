@@ -1,0 +1,56 @@
+[
+  {
+    "username": "CyberPhantom",
+    "avatar": "⚡",
+    "wins": 18,
+    "matches": 21,
+    "goals": 74,
+    "winrate": 86,
+    "lastActive": "Aujourd'hui"
+  },
+  {
+    "username": "NeonStriker",
+    "avatar": "👑",
+    "wins": 15,
+    "matches": 19,
+    "goals": 62,
+    "winrate": 79,
+    "lastActive": "Aujourd'hui"
+  },
+  {
+    "username": "QuantumAce",
+    "avatar": "🚀",
+    "wins": 12,
+    "matches": 16,
+    "goals": 48,
+    "winrate": 75,
+    "lastActive": "Hier"
+  },
+  {
+    "username": "PulseViper",
+    "avatar": "🔥",
+    "wins": 9,
+    "matches": 14,
+    "goals": 39,
+    "winrate": 64,
+    "lastActive": "Hier"
+  },
+  {
+    "username": "ApexMaster",
+    "avatar": "👑",
+    "wins": 1,
+    "matches": 1,
+    "goals": 1,
+    "winrate": 100,
+    "lastActive": "Oct 31"
+  },
+  {
+    "username": "ViperPilot",
+    "avatar": "🔥",
+    "wins": 0,
+    "matches": 1,
+    "goals": 0,
+    "winrate": 0,
+    "lastActive": "Oct 31"
+  }
+]
