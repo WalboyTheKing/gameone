@@ -65,8 +65,8 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
     {
       id: 'runner' as const,
       title: 'Cyber Dash',
-      category: 'Course Infinie Synthwave',
-      desc: 'Franchissez les pylônes laser, esquivez les drones de patrouille et battez la vitesse limite.',
+      category: 'Endless Synthwave Runner',
+      desc: 'Dash through laser pylons, dodge rogue patrol drones, and break the speed barrier.',
       icon: Zap,
       image: CYBER_RUNNER_ART,
       accent: 'text-cyan-400',
@@ -75,8 +75,8 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
     {
       id: 'shooter' as const,
       title: 'Galaxy Defender',
-      category: 'Shoot\'em Up Spatial',
-      desc: 'Pilotez votre chasseur néon, désintégrez les vagues extraterrestres et esquivez les météores.',
+      category: 'Arcade Space Shooter',
+      desc: 'Pilot your starfighter, disintegrate alien armadas, and weave through asteroid storms.',
       icon: Rocket,
       image: SPACE_DEFENDER_ART,
       accent: 'text-blue-400',
@@ -85,8 +85,8 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
     {
       id: 'snake' as const,
       title: 'Neon Snake',
-      category: 'Grille Vectorielle',
-      desc: 'Slalomez dans la matrice cybernétique, collectez les orbes dorées et activez le mode fantôme.',
+      category: 'Matrix Vector Grid',
+      desc: 'Slither through the glowing cyber matrix, absorb gold energy orbs, and engage ghost phasing.',
       icon: Sparkles,
       image: null,
       accent: 'text-emerald-400',
@@ -95,8 +95,8 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
     {
       id: 'tile' as const,
       title: 'Quantum Fusion',
-      category: 'Fusion Numérique 2048',
-      desc: 'Combinez les isotopes d\'énergie par glissement pour stabiliser le cœur quantique suprême.',
+      category: '2048 Energy Synthesis',
+      desc: 'Slide and fuse matching isotope blocks to stabilize the supreme 2048 quantum singularity.',
       icon: Layers,
       image: null,
       accent: 'text-purple-400',
@@ -114,11 +114,11 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
           <div className="space-y-4 max-w-2xl">
             {/* Clean unboxed metadata kicker */}
             <div className="flex items-center gap-2 text-xs font-medium text-cyan-400 tracking-wider uppercase">
-              <span>Arène Multijoueur</span>
+              <span>Multiplayer Arena</span>
               <span aria-hidden="true" className="text-slate-600">·</span>
-              <span>Physique Serveur 60 FPS</span>
+              <span>Authoritative 60 FPS Physics</span>
               <span aria-hidden="true" className="text-slate-600">·</span>
-              <span>100% Jouable Instantanément</span>
+              <span>Instant 1-Click Duels</span>
             </div>
 
             <div>
@@ -126,7 +126,7 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
                 NEON ARCADE
               </h1>
               <p className="text-sm sm:text-base font-medium text-slate-300 mt-2 leading-relaxed">
-                Affrontez vos amis en direct dans des arènes rétro-futuristes synchronisées. Créez votre salon en un clic, partagez votre code de duel et dominez le classement général.
+                Compete head-to-head in real-time retro-futuristic duels. Create private rooms in one click, share direct invitation links, and dominate the global leaderboard.
               </p>
             </div>
 
@@ -137,14 +137,14 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold font-arcade text-sm transition-all duration-150 transform active:scale-95 shadow-lg shadow-cyan-500/20 whitespace-nowrap shrink-0"
               >
                 <Zap className="w-4 h-4 fill-current" />
-                Matchmaking Rapide
+                Quick Match
               </button>
               <button
                 onClick={() => onOpenMultiplayerLobby()}
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold font-arcade text-sm border border-slate-700/80 transition-colors whitespace-nowrap shrink-0"
               >
                 <Users className="w-4 h-4 text-cyan-400" />
-                Salons Multijoueurs
+                Browse Lobbies
               </button>
             </div>
           </div>
@@ -155,7 +155,7 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
             <button
               onClick={onOpenProfile}
               className="group text-left flex items-center gap-3.5 bg-slate-950/80 hover:bg-slate-800/80 border border-slate-800 hover:border-cyan-500/50 rounded-2xl p-4 transition-all duration-200 shadow-md"
-              title="Personnaliser pseudo et avatar"
+              title="Customize nickname and avatar"
             >
               <div className="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-2xl group-hover:scale-105 transition-transform">
                 {profile.avatar}
@@ -170,9 +170,9 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
                   </span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-slate-400 mt-1">
-                  <span>Victoires: <strong className="text-emerald-400 font-mono tabular-nums">{profile.stats.wins}</strong></span>
+                  <span>Wins: <strong className="text-emerald-400 font-mono tabular-nums">{profile.stats.wins}</strong></span>
                   <span aria-hidden="true" className="text-slate-600">·</span>
-                  <span>Défaites: <strong className="text-rose-400 font-mono tabular-nums">{profile.stats.losses}</strong></span>
+                  <span>Losses: <strong className="text-rose-400 font-mono tabular-nums">{profile.stats.losses}</strong></span>
                 </div>
               </div>
               <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-cyan-400 ml-2 transition-colors" />
@@ -182,15 +182,15 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
             <div className="flex items-center gap-2.5">
               <div className="flex items-center gap-2 bg-slate-950/80 border border-slate-800 rounded-2xl px-4 py-2.5 shadow-md">
                 <Coins className="w-4 h-4 text-amber-400" />
-                <span className="text-xs text-slate-400">Pièces:</span>
+                <span className="text-xs text-slate-400">Coins:</span>
                 <span className="text-sm font-bold font-mono tabular-nums text-amber-300">{coins}</span>
               </div>
 
               <button
                 onClick={onToggleMute}
                 className="p-3 rounded-2xl bg-slate-950/80 border border-slate-800 text-slate-300 hover:text-white hover:bg-slate-800 transition-colors shadow-md"
-                title={isMuted ? 'Activer le son' : 'Couper le son'}
-                aria-label={isMuted ? 'Activer le son' : 'Couper le son'}
+                title={isMuted ? 'Unmute audio' : 'Mute audio'}
+                aria-label={isMuted ? 'Unmute audio' : 'Mute audio'}
               >
                 {isMuted ? <VolumeX className="w-4 h-4 text-rose-400" /> : <Volume2 className="w-4 h-4 text-emerald-400" />}
               </button>
@@ -209,13 +209,13 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
           <div>
             <div className="flex items-center gap-2 text-xs font-semibold text-cyan-400 tracking-wider uppercase">
               <Swords className="w-4 h-4" />
-              <span>Compétition Serveur Dédiée</span>
+              <span>Dedicated Server Competition</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black font-arcade text-white tracking-tight mt-1">
-              ARÈNE MULTIJOUEUR 1v1
+              1v1 MULTIPLAYER ARENA
             </h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-1">
-              Rejoignez un salon privé avec votre ami ou lancez un entraînement solo contre le bot
+              Join a private room with a friend or jump into solo practice against AI bots
             </p>
           </div>
 
@@ -223,7 +223,7 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
             onClick={() => onOpenMultiplayerLobby()}
             className="inline-flex items-center gap-1.5 text-xs font-semibold font-arcade text-cyan-400 hover:text-cyan-300 transition-colors whitespace-nowrap self-start sm:self-auto"
           >
-            Voir tous les salons ouverts <ChevronRight className="w-4 h-4" />
+            Browse all open lobbies <ChevronRight className="w-4 h-4" />
           </button>
         </div>
 
@@ -235,18 +235,18 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
             <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-950">
               <img
                 src={AIR_HOCKEY_ART}
-                alt="Table de Neon Air Hockey futuriste"
+                alt="Futuristic neon air hockey table"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                 <div>
-                  <span className="text-xs font-medium text-cyan-300 block">Simulation de Rebond & Impulsion</span>
+                  <span className="text-xs font-medium text-cyan-300 block">Rebound Physics &amp; Impulse Strike</span>
                   <h3 className="text-2xl font-black font-arcade text-white drop-shadow">Neon Air Hockey</h3>
                 </div>
                 <span className="text-xs font-mono font-bold text-slate-200 bg-slate-950/80 px-2.5 py-1 rounded-lg border border-slate-700/60">
-                  5 Buts
+                  First to 5
                 </span>
               </div>
             </div>
@@ -254,18 +254,18 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
             {/* Description & Features */}
             <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Glissez votre maillet tactile ou à la souris, frappez le palet avec puissance, usez des bandes néon et protégez vos cages en temps réel.
+                Slide your mallet with touch or mouse, blast the puck with kinetic impulse, bank off neon rails, and defend your goal in real time.
               </p>
 
               <div className="flex items-center gap-4 text-xs text-slate-400 pt-2 border-t border-slate-800/80">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
-                  Moteur autoritaire
+                  Authoritative engine
                 </span>
                 <span aria-hidden="true" className="text-slate-700">·</span>
                 <span className="flex items-center gap-1.5">
                   <Target className="w-3.5 h-3.5 text-cyan-400" />
-                  Effets cinétiques
+                  Kinetic rebounds
                 </span>
               </div>
 
@@ -276,14 +276,14 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold font-arcade text-xs transition-colors whitespace-nowrap shadow-md"
                 >
                   <Users className="w-3.5 h-3.5" />
-                  Créer / Rejoindre Salon
+                  Create / Join Room
                 </button>
                 <button
                   onClick={() => onSelectGame('hockey')}
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold font-arcade text-xs border border-slate-700 transition-colors whitespace-nowrap"
                 >
                   <Play className="w-3.5 h-3.5 text-cyan-400" />
-                  Entraînement vs IA
+                  Solo Practice vs AI
                 </button>
               </div>
             </div>
@@ -295,18 +295,18 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
             <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-950">
               <img
                 src={CYBER_PONG_ART}
-                alt="Arène de Cyber Pong néon"
+                alt="Neon cyber pong arena"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                 <div>
-                  <span className="text-xs font-medium text-indigo-300 block">Vitesse Croissante & Duel Réflexe</span>
+                  <span className="text-xs font-medium text-indigo-300 block">Increasing Velocity &amp; Reflex Duel</span>
                   <h3 className="text-2xl font-black font-arcade text-white drop-shadow">Cyber Pong</h3>
                 </div>
                 <span className="text-xs font-mono font-bold text-slate-200 bg-slate-950/80 px-2.5 py-1 rounded-lg border border-slate-700/60">
-                  5 Points
+                  First to 5
                 </span>
               </div>
             </div>
@@ -314,18 +314,18 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
             {/* Description & Features */}
             <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Le duel de précision classique revisité. Ajustez l'angle d'impact de votre raquette pour imprimer de l'effet à la balle et déstabiliser votre adversaire.
+                The classic precision duel evolved. Control paddle angles to add deflection spin and outmaneuver your rival at lightning speeds.
               </p>
 
               <div className="flex items-center gap-4 text-xs text-slate-400 pt-2 border-t border-slate-800/80">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
-                  Synchronisation milliseconde
+                  Sub-millisecond sync
                 </span>
                 <span aria-hidden="true" className="text-slate-700">·</span>
                 <span className="flex items-center gap-1.5">
                   <Target className="w-3.5 h-3.5 text-indigo-400" />
-                  Accélération dynamique
+                  Dynamic acceleration
                 </span>
               </div>
 
@@ -336,14 +336,14 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold font-arcade text-xs transition-colors whitespace-nowrap shadow-md"
                 >
                   <Users className="w-3.5 h-3.5" />
-                  Créer / Rejoindre Salon
+                  Create / Join Room
                 </button>
                 <button
                   onClick={() => onSelectGame('pong')}
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold font-arcade text-xs border border-slate-700 transition-colors whitespace-nowrap"
                 >
                   <Play className="w-3.5 h-3.5 text-indigo-400" />
-                  Entraînement vs IA
+                  Solo Practice vs AI
                 </button>
               </div>
             </div>
@@ -357,13 +357,13 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
           <div>
             <div className="flex items-center gap-2 text-xs font-semibold text-amber-400 tracking-wider uppercase">
               <Flame className="w-4 h-4" />
-              <span>Records &amp; Haute Précision</span>
+              <span>Records &amp; High Precision</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black font-arcade text-white tracking-tight mt-1">
-              JEUX SOLO D'ARCADE
+              SOLO ARCADE GAMES
             </h2>
           </div>
-          <span className="text-xs font-medium text-slate-500">4 Défis Haute Vitesse</span>
+          <span className="text-xs font-medium text-slate-500">4 High-Speed Challenges</span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -396,7 +396,7 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
                     <div className="flex items-center justify-between gap-2">
                       <span className="text-xs font-medium text-slate-400">{game.category}</span>
                       <span className="text-xs font-mono font-bold tabular-nums text-cyan-400">
-                        Record: {game.highScore}
+                        Best: {game.highScore}
                       </span>
                     </div>
                     <h3 className="text-lg font-bold font-arcade text-white group-hover:text-cyan-300 transition-colors truncate">
@@ -409,7 +409,7 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-arcade font-bold text-slate-400 group-hover:text-cyan-400 transition-colors">
-                  <span>LANCER LA PARTIE</span>
+                  <span>PLAY NOW</span>
                   <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -424,10 +424,10 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
           <div>
             <div className="flex items-center gap-2 text-xs font-semibold text-amber-400 tracking-wider uppercase">
               <Trophy className="w-4 h-4" />
-              <span>Classement &amp; Historique Officiel</span>
+              <span>Official Standings &amp; Match Log</span>
             </div>
             <h3 className="text-xl font-black font-arcade text-white tracking-tight mt-1">
-              PANTHÉON DES PILOTES
+              PILOT LEADERBOARD
             </h3>
           </div>
 
@@ -441,7 +441,7 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
                   : 'text-slate-400 hover:text-slate-200'
               }`}
             >
-              Classement Général
+              Global Standings
             </button>
             <button
               onClick={() => setActiveLeaderboardTab('matches')}
@@ -451,7 +451,7 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
                   : 'text-slate-400 hover:text-slate-200'
               }`}
             >
-              Derniers Matchs ({recentMatches.length})
+              Recent Duels ({recentMatches.length})
             </button>
           </div>
         </div>
@@ -460,8 +460,8 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
           globalLeaderboard.length === 0 ? (
             <div className="text-center py-12 space-y-2 bg-slate-950/40 rounded-2xl border border-dashed border-slate-800">
               <Trophy className="w-8 h-8 mx-auto text-slate-600" />
-              <p className="text-xs text-slate-400">Aucun match compétitif enregistré pour le moment.</p>
-              <p className="text-[11px] text-slate-500">Terminez un match multijoueur pour inscrire votre pseudo au Panthéon !</p>
+              <p className="text-xs text-slate-400">No competitive matches recorded yet.</p>
+              <p className="text-[11px] text-slate-500">Finish a multiplayer duel to engrave your callsign on the leaderboard!</p>
             </div>
           ) : (
             <div className="space-y-2">
@@ -480,18 +480,18 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
                     <div>
                       <span className="font-bold font-arcade text-white block">{player.username}</span>
                       <span className="text-[11px] text-slate-500 font-mono tabular-nums">
-                        {player.matches} parties · {player.goals} buts marqués
+                        {player.matches} matches · {player.goals} goals scored
                       </span>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-6">
                     <div className="text-right">
-                      <span className="text-[10px] text-slate-500 uppercase tracking-wider block">Victoires</span>
+                      <span className="text-[10px] text-slate-500 uppercase tracking-wider block">Wins</span>
                       <span className="font-bold font-mono text-emerald-400 tabular-nums text-sm">{player.wins}</span>
                     </div>
                     <div className="text-right">
-                      <span className="text-[10px] text-slate-500 uppercase tracking-wider block">Taux</span>
+                      <span className="text-[10px] text-slate-500 uppercase tracking-wider block">Winrate</span>
                       <span className="font-bold font-mono text-amber-400 tabular-nums text-sm">{player.winrate}%</span>
                     </div>
                   </div>
@@ -503,8 +503,8 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
           recentMatches.length === 0 ? (
             <div className="text-center py-12 space-y-2 bg-slate-950/40 rounded-2xl border border-dashed border-slate-800">
               <Swords className="w-8 h-8 mx-auto text-slate-600" />
-              <p className="text-xs text-slate-400">Aucun duel PvP terminé récemment.</p>
-              <p className="text-[11px] text-slate-500">Lancez un match Air Hockey ou Pong pour générer le rapport officiel !</p>
+              <p className="text-xs text-slate-400">No recent PvP duels completed.</p>
+              <p className="text-[11px] text-slate-500">Play Air Hockey or Cyber Pong to generate the match report!</p>
             </div>
           ) : (
             <div className="space-y-2 max-h-[300px] overflow-y-auto pr-1">
@@ -520,13 +520,13 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
                         {m.p1} <span className="text-cyan-400 font-mono tabular-nums">{m.score1}</span> - <span className="text-indigo-400 font-mono tabular-nums">{m.score2}</span> {m.p2}
                       </span>
                       <span className="text-[11px] text-slate-400">
-                        Vainqueur: <strong className="text-emerald-400 font-medium">{m.winner}</strong> · <span className="font-mono tabular-nums">{m.time}</span>
+                        Winner: <strong className="text-emerald-400 font-medium">{m.winner}</strong> · <span className="font-mono tabular-nums">{m.time}</span>
                       </span>
                     </div>
                   </div>
 
                   <span className="text-[11px] font-mono text-slate-400 bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">
-                    Terminé
+                    Completed
                   </span>
                 </div>
               ))}
@@ -541,9 +541,9 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
         <div className="rounded-2xl bg-slate-900/80 border border-slate-800 p-6 space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-base font-bold font-arcade text-white flex items-center gap-2">
-              <Award className="w-4 h-4 text-indigo-400" /> TROPHÉES &amp; SUCCÈS
+              <Award className="w-4 h-4 text-indigo-400" /> TROPHIES &amp; ACHIEVEMENTS
             </h3>
-            <span className="text-xs font-mono tabular-nums text-slate-400">{unlockedCount} / {achievements.length} débloqués</span>
+            <span className="text-xs font-mono tabular-nums text-slate-400">{unlockedCount} / {achievements.length} unlocked</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -572,14 +572,14 @@ export const ArcadeDashboard: React.FC<ArcadeDashboardProps> = ({
         <div className="rounded-2xl bg-slate-900/80 border border-slate-800 p-6 space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-base font-bold font-arcade text-white flex items-center gap-2">
-              <History className="w-4 h-4 text-cyan-400" /> HISTORIQUE SOLO
+              <History className="w-4 h-4 text-cyan-400" /> SOLO RUN HISTORY
             </h3>
-            <span className="text-xs text-slate-400">Dernières Tentatives</span>
+            <span className="text-xs text-slate-400">Recent Scores</span>
           </div>
 
           {history.length === 0 ? (
             <div className="text-center py-10 text-slate-500 text-xs">
-              Aucune session solo enregistrée pour le moment.
+              No solo arcade runs recorded yet.
             </div>
           ) : (
             <div className="space-y-2 max-h-[220px] overflow-y-auto pr-1">

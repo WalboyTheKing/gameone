@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Check, User, Sparkles, Trophy, Target } from 'lucide-react';
+import { X, Check, User } from 'lucide-react';
 import { UserProfile, DEFAULT_AVATARS, saveUserProfile } from '../../utils/userProfile';
 import { sounds } from '../../utils/audio';
 
@@ -50,13 +50,14 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               <User className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-xl font-bold font-arcade text-white">PROFIL JOUEUR</h3>
-              <p className="text-xs text-slate-400">Identité en ligne pour les matchs multijoueurs</p>
+              <h3 className="text-xl font-bold font-arcade text-white">PLAYER PROFILE</h3>
+              <p className="text-xs text-slate-400">Online identity for multiplayer matches</p>
             </div>
           </div>
           <button
             onClick={onClose}
             className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition"
+            aria-label="Close"
           >
             <X className="w-5 h-5" />
           </button>
@@ -65,16 +66,16 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
         {/* Stats Preview */}
         <div className="grid grid-cols-3 gap-2.5 p-3 rounded-2xl bg-slate-950/70 border border-slate-800/80 text-center">
           <div>
-            <span className="text-[10px] uppercase tracking-wider text-slate-400 block">Matchs</span>
-            <span className="text-base font-bold font-arcade text-cyan-400">{profile.stats.matchesPlayed}</span>
+            <span className="text-[10px] uppercase tracking-wider text-slate-400 block">Matches</span>
+            <span className="text-base font-bold font-arcade text-cyan-400 tabular-nums">{profile.stats.matchesPlayed}</span>
           </div>
           <div>
-            <span className="text-[10px] uppercase tracking-wider text-slate-400 block">Victoires</span>
-            <span className="text-base font-bold font-arcade text-emerald-400">{profile.stats.wins}</span>
+            <span className="text-[10px] uppercase tracking-wider text-slate-400 block">Wins</span>
+            <span className="text-base font-bold font-arcade text-emerald-400 tabular-nums">{profile.stats.wins}</span>
           </div>
           <div>
-            <span className="text-[10px] uppercase tracking-wider text-slate-400 block">Taux Vict.</span>
-            <span className="text-base font-bold font-arcade text-amber-400">{winRate}%</span>
+            <span className="text-[10px] uppercase tracking-wider text-slate-400 block">Win Rate</span>
+            <span className="text-base font-bold font-arcade text-amber-400 tabular-nums">{winRate}%</span>
           </div>
         </div>
 
@@ -82,7 +83,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
         <form onSubmit={handleSave} className="space-y-5">
           <div>
             <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider block mb-2">
-              Pseudo (Nom d'affichage)
+              Callsign (Display Name)
             </label>
             <div className="relative">
               <input
@@ -90,7 +91,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 maxLength={18}
-                placeholder="Entrez votre pseudo..."
+                placeholder="Enter callsign..."
                 className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-white font-arcade text-base placeholder-slate-500 outline-none transition"
               />
               <span className="absolute right-3 top-3.5 text-xs text-slate-500 font-mono">
@@ -101,7 +102,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
 
           <div>
             <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider block mb-2">
-              Choisissez votre Avatar Cyber
+              Select Cyber Avatar
             </label>
             <div className="grid grid-cols-5 gap-2.5">
               {DEFAULT_AVATARS.map((av) => (
@@ -127,13 +128,13 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               onClick={onClose}
               className="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold font-arcade text-sm transition"
             >
-              Annuler
+              Cancel
             </button>
             <button
               type="submit"
               className="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white font-bold font-arcade text-sm shadow-lg shadow-indigo-500/25 transition transform active:scale-95"
             >
-              <Check className="w-4 h-4" /> Sauvegarder
+              <Check className="w-4 h-4" /> Save
             </button>
           </div>
         </form>

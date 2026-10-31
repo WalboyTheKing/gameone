@@ -5,10 +5,7 @@ import {
   Users, 
   Key, 
   RefreshCw, 
-  Trophy, 
-  Rocket, 
   ArrowRight,
-  Sparkles,
   Gamepad2,
   Share2,
   Check,
@@ -84,7 +81,7 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
     });
 
     const unsubError = socket.on('error', (data) => {
-      setErrorMsg(data.message || 'Une erreur est survenue.');
+      setErrorMsg(data.message || 'An error occurred.');
     });
 
     return () => {
@@ -124,7 +121,7 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
       socket.send({
         type: 'create_room',
         gameType: initialGameType || 'hockey',
-        name: `Arène Rapide de ${profile.username}`,
+        name: `${profile.username}'s Arena`,
         maxScore: 5,
         username: profile.username,
         avatar: profile.avatar,
@@ -139,7 +136,7 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
     socket.send({
       type: 'create_room',
       gameType,
-      name: roomName.trim() || 'Arène Cyber',
+      name: roomName.trim() || 'Cyber Arena',
       maxScore,
       username: profile.username,
       avatar: profile.avatar,
@@ -170,10 +167,10 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
             </div>
             <div>
               <h3 className="text-xl font-bold font-arcade text-white flex items-center gap-2">
-                SALONS MULTIJOUEURS <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">EN DIRECT</span>
+                MULTIPLAYER LOBBIES <span className="text-xs px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">LIVE</span>
               </h3>
               <p className="text-xs text-slate-400">
-                Joueur connecté: <span className="text-white font-semibold">{profile.avatar} {profile.username}</span>
+                Connected Pilot: <span className="text-white font-semibold">{profile.avatar} {profile.username}</span>
               </p>
             </div>
           </div>
@@ -181,6 +178,7 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
           <button
             onClick={onClose}
             className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition"
+            aria-label="Close"
           >
             <X className="w-5 h-5" />
           </button>
@@ -196,7 +194,7 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            <Users className="w-4 h-4" /> Salons Disponibles ({rooms.length})
+            <Users className="w-4 h-4" /> Available Lobbies ({rooms.length})
           </button>
           <button
             onClick={() => setActiveTab('create')}
@@ -206,7 +204,7 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            <Plus className="w-4 h-4" /> Créer un Salon
+            <Plus className="w-4 h-4" /> Create a Room
           </button>
         </div>
 
@@ -225,7 +223,7 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
                 <Key className="w-5 h-5 text-amber-400 shrink-0 ml-1" />
                 <input
                   type="text"
-                  placeholder="Entrer le Code du Salon (ex: AIR-123)"
+                  placeholder="Enter Room Code (e.g. AIR-123)"
                   value={joinCode}
                   onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
                   className="flex-1 bg-transparent text-sm font-arcade uppercase text-white placeholder-slate-500 outline-none"
@@ -235,7 +233,7 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
                   disabled={!joinCode.trim()}
                   className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-40 text-white text-xs font-bold font-arcade transition"
                 >
-                  Rejoindre
+                  Join
                 </button>
               </div>
 
@@ -246,8 +244,8 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
                     <Zap className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold font-arcade text-white block">Matchmaking Rapide</span>
-                    <span className="text-[11px] text-slate-400">Rejoint un rival en attente ou crée un salon public</span>
+                    <span className="text-xs font-bold font-arcade text-white block">Instant Matchmaking</span>
+                    <span className="text-[11px] text-slate-400">Join a waiting challenger or open a public lobby</span>
                   </div>
                 </div>
 
@@ -255,20 +253,20 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
                   onClick={handleQuickMatch}
                   className="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-600 hover:to-indigo-700 text-white text-xs font-bold font-arcade shadow-lg transition active:scale-95"
                 >
-                  Trouver un Match
+                  Find Match
                 </button>
               </div>
 
               {/* Header with Refresh */}
               <div className="flex items-center justify-between pt-1">
                 <span className="text-xs uppercase tracking-wider text-slate-400 font-bold">
-                  Salons Publics Ouverts
+                  Open Public Lobbies
                 </span>
                 <button
                   onClick={handleRefresh}
                   className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-cyan-400 transition"
                 >
-                  <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin text-cyan-400' : ''}`} /> Actualiser
+                  <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin text-cyan-400' : ''}`} /> Refresh
                 </button>
               </div>
 
@@ -276,12 +274,12 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
               {rooms.length === 0 ? (
                 <div className="text-center py-12 space-y-3 bg-slate-950/40 rounded-2xl border border-dashed border-slate-800">
                   <Gamepad2 className="w-10 h-10 mx-auto text-slate-600" />
-                  <p className="text-sm text-slate-400">Aucun salon public ouvert actuellement.</p>
+                  <p className="text-sm text-slate-400">No public rooms currently open.</p>
                   <button
                     onClick={() => setActiveTab('create')}
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-400 text-xs font-bold font-arcade transition"
                   >
-                    <Plus className="w-3.5 h-3.5" /> Créer le premier salon
+                    <Plus className="w-3.5 h-3.5" /> Create the first lobby
                   </button>
                 </div>
               ) : (
@@ -305,26 +303,27 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
                               </span>
                             </div>
                             <p className="text-xs text-slate-400 mt-0.5">
-                              Hôte: <span className="text-slate-200">{r.player1}</span> &bull; {r.gameType === 'hockey' ? 'Air Hockey' : 'Cyber Pong'}
+                              Host: <span className="text-slate-200">{r.player1}</span> · {r.gameType === 'hockey' ? 'Air Hockey' : 'Cyber Pong'}
                             </p>
                           </div>
                         </div>
 
                         <div className="flex items-center justify-between sm:justify-end gap-2 border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-800">
                           <span
-                            className={`text-[11px] font-bold px-2.5 py-1 rounded-full border ${
+                            className={`text-[11px] font-bold px-2.5 py-1 rounded-md border ${
                               isFull
                                 ? 'bg-amber-500/20 text-amber-300 border-amber-500/30'
                                 : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
                             }`}
                           >
-                            {r.playerCount}/2 Joueurs {isFull ? '(En jeu)' : '(Prêt)'}
+                            {r.playerCount}/2 Players {isFull ? '(Playing)' : '(Ready)'}
                           </span>
 
                           <button
                             onClick={(e) => copyLinkForRoom(r.id, e)}
                             className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition"
-                            title="Copier le lien direct du salon"
+                            title="Copy direct invite link"
+                            aria-label="Copy direct invite link"
                           >
                             {copiedRoomId === r.id ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5" />}
                           </button>
@@ -333,7 +332,7 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
                             onClick={() => handleJoinById(r.id)}
                             className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white font-bold font-arcade text-xs shadow transition active:scale-95"
                           >
-                            Rejoindre <ArrowRight className="w-3.5 h-3.5" />
+                            Join <ArrowRight className="w-3.5 h-3.5" />
                           </button>
                         </div>
                       </div>
@@ -348,7 +347,7 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
               {/* Choose Game */}
               <div>
                 <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider block mb-2">
-                  1. Choisissez le Jeu Multijoueur
+                  1. Select Game Mode
                 </label>
                 <div className="grid grid-cols-2 gap-3">
                   <div
@@ -361,13 +360,13 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-3xl">🏒</span>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
-                        RECOMMANDÉ
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                        RECOMMENDED
                       </span>
                     </div>
                     <div className="mt-3">
                       <h4 className="text-sm font-bold font-arcade text-white">Neon Air Hockey</h4>
-                      <p className="text-[11px] text-slate-400 mt-1">Palets rapides, rebonds sur rails et compétition intense.</p>
+                      <p className="text-[11px] text-slate-400 mt-1">High-speed puck physics, rail rebounds, and intense action.</p>
                     </div>
                   </div>
 
@@ -381,13 +380,13 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-3xl">🏓</span>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                        CLASSIQUE
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                        CLASSIC
                       </span>
                     </div>
                     <div className="mt-3">
                       <h4 className="text-sm font-bold font-arcade text-white">Cyber Pong</h4>
-                      <p className="text-[11px] text-slate-400 mt-1">Deux raquettes, synchronisation de balle et duels d'angles.</p>
+                      <p className="text-[11px] text-slate-400 mt-1">Twin paddles, ball speed acceleration, and spin deflections.</p>
                     </div>
                   </div>
                 </div>
@@ -396,14 +395,14 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
               {/* Room Name */}
               <div>
                 <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider block mb-2">
-                  2. Nom du Salon
+                  2. Room Name
                 </label>
                 <input
                   type="text"
                   value={roomName}
                   onChange={(e) => setRoomName(e.target.value)}
                   maxLength={25}
-                  placeholder="Ex: Arène des Maîtres"
+                  placeholder="e.g. Master Arena"
                   className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 focus:border-cyan-500 text-white font-arcade text-sm outline-none transition"
                 />
               </div>
@@ -411,7 +410,7 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
               {/* Score Target */}
               <div>
                 <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider block mb-2">
-                  3. Score pour Gagner le Match
+                  3. Score Limit to Win Match
                 </label>
                 <div className="grid grid-cols-3 gap-3">
                   {[3, 5, 10].map((score) => (
@@ -436,7 +435,7 @@ export const LobbyModal: React.FC<LobbyModalProps> = ({
                   type="submit"
                   className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-600 hover:to-indigo-700 text-white font-bold font-arcade text-sm shadow-xl shadow-cyan-500/20 transition transform active:scale-95"
                 >
-                  🚀 CRÉER ET OUVRIR LE SALON
+                  🚀 CREATE AND OPEN ROOM
                 </button>
               </div>
             </form>

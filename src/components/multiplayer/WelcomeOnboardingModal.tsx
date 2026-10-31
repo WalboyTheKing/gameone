@@ -37,11 +37,11 @@ export const WelcomeOnboardingModal: React.FC<WelcomeOnboardingModalProps> = ({
     e.preventDefault();
     const cleanName = username.trim();
     if (!cleanName) {
-      setError('Veuillez entrer un pseudo');
+      setError('Please enter a callsign');
       return;
     }
     if (cleanName.length < 2) {
-      setError('Le pseudo doit contenir au moins 2 caractères');
+      setError('Callsign must contain at least 2 characters');
       return;
     }
 
@@ -71,25 +71,25 @@ export const WelcomeOnboardingModal: React.FC<WelcomeOnboardingModalProps> = ({
         <div className="text-center space-y-2">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono tracking-widest uppercase">
             <Sparkles className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: '4s' }} />
-            Protocole d'Entrée Arcade
+            Arcade Access Protocol
           </div>
 
           <h2 className="text-2xl sm:text-3xl font-black font-arcade tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-amber-300">
-            BIENVENUE DANS NEON ARCADE
+            WELCOME TO NEON ARCADE
           </h2>
 
           {invitationRoomCode ? (
             <div className="p-2.5 rounded-xl bg-fuchsia-950/50 border border-fuchsia-500/40 text-fuchsia-200 text-xs sm:text-sm font-medium">
-              🎮 <span className="font-bold text-fuchsia-300">Invitation Reçue :</span> Tu rejoins le salon{' '}
+              🎮 <span className="font-bold text-fuchsia-300">Invitation Received:</span> Joining room{' '}
               <span className="font-mono font-bold text-white bg-fuchsia-500/30 px-2 py-0.5 rounded border border-fuchsia-400">
                 {invitationRoomCode}
               </span>
-              . Choisis ton pseudo de duel !
+              . Choose your duel callsign!
             </div>
           ) : (
             <p className="text-xs sm:text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
-              Choisis ton <span className="text-cyan-300 font-bold">Pseudo</span> et ton{' '}
-              <span className="text-pink-300 font-bold">Avatar</span> pour affronter tes rivaux en multijoueur temps réel et grimper au classement.
+              Choose your <span className="text-cyan-300 font-bold">Callsign</span> and{' '}
+              <span className="text-pink-300 font-bold">Avatar</span> to challenge rivals in real-time multiplayer and climb the ranks.
             </p>
           )}
         </div>
@@ -102,13 +102,13 @@ export const WelcomeOnboardingModal: React.FC<WelcomeOnboardingModalProps> = ({
             </div>
             <div className="text-left">
               <span className="text-[10px] uppercase font-mono tracking-widest text-cyan-400 block">
-                Carte de Joueur
+                Player Card
               </span>
               <span className="text-lg sm:text-xl font-bold font-arcade text-white tracking-wide">
-                {username || 'Sans Nom'}
+                {username || 'Nameless'}
               </span>
               <span className="text-xs text-slate-400 block font-mono">
-                Statut : Prêt au combat ⚡
+                Status: Combat Ready ⚡
               </span>
             </div>
           </div>
@@ -121,16 +121,16 @@ export const WelcomeOnboardingModal: React.FC<WelcomeOnboardingModalProps> = ({
             <div className="flex items-center justify-between">
               <label className="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center gap-1.5">
                 <Gamepad2 className="w-4 h-4 text-cyan-400" />
-                Ton Pseudo de Joueur
+                Player Callsign
               </label>
               <button
                 type="button"
                 onClick={handleRollRandom}
                 className="text-xs font-mono text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1 transition"
-                title="Générer un pseudo stylé"
+                title="Generate random callsign"
               >
                 <Dices className="w-3.5 h-3.5" />
-                Aléatoire
+                Randomize
               </button>
             </div>
 
@@ -144,7 +144,7 @@ export const WelcomeOnboardingModal: React.FC<WelcomeOnboardingModalProps> = ({
                   setError(null);
                 }}
                 maxLength={18}
-                placeholder="Ex: Viper, Neo, Sarah, Dragon..."
+                placeholder="e.g. Viper, Neo, Sarah, Dragon..."
                 className="w-full px-4 py-3.5 rounded-xl bg-slate-950 border-2 border-slate-700 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/30 text-white font-arcade text-base sm:text-lg tracking-wide placeholder-slate-600 outline-none transition"
               />
               <span className="absolute right-3.5 top-4 text-xs text-slate-500 font-mono">
@@ -157,7 +157,7 @@ export const WelcomeOnboardingModal: React.FC<WelcomeOnboardingModalProps> = ({
           {/* Avatar Selector */}
           <div className="space-y-2">
             <label className="text-xs font-bold text-slate-200 uppercase tracking-wider block">
-              Choisis ton Emblème Cyber
+              Select Cyber Emblem
             </label>
             <div className="grid grid-cols-5 gap-2">
               {DEFAULT_AVATARS.map((av) => (
@@ -181,15 +181,15 @@ export const WelcomeOnboardingModal: React.FC<WelcomeOnboardingModalProps> = ({
           <div className="grid grid-cols-3 gap-2 py-2 text-[10px] text-slate-400 border-t border-slate-800/80">
             <div className="flex items-center gap-1 justify-center text-center">
               <Zap className="w-3 h-3 text-amber-400 shrink-0" />
-              <span>Zéro mot de passe</span>
+              <span>Zero passwords</span>
             </div>
             <div className="flex items-center gap-1 justify-center text-center">
               <ShieldCheck className="w-3 h-3 text-cyan-400 shrink-0" />
-              <span>Multiplayer 60 FPS</span>
+              <span>60 FPS Multi</span>
             </div>
             <div className="flex items-center gap-1 justify-center text-center">
               <Trophy className="w-3 h-3 text-pink-400 shrink-0" />
-              <span>Score & Victoires</span>
+              <span>Score &amp; Wins</span>
             </div>
           </div>
 
@@ -200,12 +200,12 @@ export const WelcomeOnboardingModal: React.FC<WelcomeOnboardingModalProps> = ({
           >
             {invitationRoomCode ? (
               <>
-                <span>REJOINDRE LE MATCH</span>
+                <span>JOIN MATCH</span>
                 <ArrowRight className="w-5 h-5 animate-pulse" />
               </>
             ) : (
               <>
-                <span>⚡ ENTRER DANS L'ARÈNE</span>
+                <span>ENTER ARENA</span>
                 <ArrowRight className="w-5 h-5 animate-pulse" />
               </>
             )}

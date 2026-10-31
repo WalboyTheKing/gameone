@@ -606,11 +606,11 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
 
   const playersList = (currentRoom?.players ? Object.values(currentRoom.players) : []) as any[];
   const p1Name = isMultiplayer
-    ? playersList.find((p: any) => p.role === 'player1')?.username || 'Attente...'
+    ? playersList.find((p: any) => p.role === 'player1')?.username || 'Waiting...'
     : profile.username;
 
   const p2Name = isMultiplayer
-    ? playersList.find((p: any) => p.role === 'player2')?.username || 'Attente Joueur 2...'
+    ? playersList.find((p: any) => p.role === 'player2')?.username || 'Waiting for Player 2...'
     : 'Cyber AI Bot';
 
   const isWaitingOpponent = isMultiplayer && Object.keys(currentRoom?.players || {}).length < 2;
@@ -631,17 +631,17 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
             <div className="flex items-center gap-2">
               {myRole === 'spectator' ? (
                 <span className="flex items-center gap-1.5 text-xs font-bold font-arcade px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/40 animate-pulse">
-                  <Eye className="w-3.5 h-3.5" /> SPECTATEUR DIRECT (60 FPS)
+                  <Eye className="w-3.5 h-3.5" /> LIVE SPECTATOR (60 FPS)
                 </span>
               ) : (
                 <span className="flex items-center gap-1.5 text-xs font-bold font-arcade px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                  <Users className="w-3.5 h-3.5" /> MULTIJOUEUR EN LIGNE
+                  <Users className="w-3.5 h-3.5" /> ONLINE MULTIPLAYER
                 </span>
               )}
               <button
                 onClick={copyRoomCode}
                 className="flex items-center gap-1 text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700 transition"
-                title="Copier le code du salon"
+                title="Copy room code"
               >
                 #{currentRoom?.id} {copiedCode ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
               </button>
@@ -649,7 +649,7 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
           ) : (
             <div className="flex items-center gap-2">
               <span className="flex items-center gap-1.5 text-xs font-bold font-arcade px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30">
-                <Bot className="w-3.5 h-3.5" /> ENTRAÎNEMENT SOLO VS IA
+                <Bot className="w-3.5 h-3.5" /> SOLO PRACTICE VS AI
               </span>
             </div>
           )}
@@ -662,7 +662,7 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
               <span className="text-[10px] text-cyan-400 uppercase font-bold block max-w-[100px] truncate">
                 {p1Name}
               </span>
-              <span className="text-xl sm:text-2xl font-black font-arcade text-cyan-400">{score1}</span>
+              <span className="text-xl sm:text-2xl font-black font-arcade text-cyan-400 tabular-nums">{score1}</span>
             </div>
           </div>
 
@@ -673,7 +673,7 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
               <span className="text-[10px] text-pink-400 uppercase font-bold block max-w-[100px] truncate">
                 {p2Name}
               </span>
-              <span className="text-xl sm:text-2xl font-black font-arcade text-pink-400">{score2}</span>
+              <span className="text-xl sm:text-2xl font-black font-arcade text-pink-400 tabular-nums">{score2}</span>
             </div>
           </div>
         </div>
@@ -684,7 +684,7 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
               onClick={() => onBack()}
               className="px-3 py-1.5 rounded-xl bg-cyan-600/30 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-600/40 text-xs font-bold font-arcade transition"
             >
-              Créer / Rejoindre Salon
+              Create / Join Room
             </button>
           )}
 
@@ -728,7 +728,7 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
               {countdown}
             </span>
             <p className="text-sm font-bold font-arcade text-white mt-4 uppercase tracking-widest">
-              Préparez vos maillets...
+              Ready your mallets...
             </p>
           </div>
         )}
@@ -739,17 +739,17 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
             <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping" />
             <div className="text-left">
               <span className="text-xs font-bold font-arcade block text-amber-300">
-                Adversaire déconnecté ({disconnectGrace.user})
+                Challenger disconnected ({disconnectGrace.user})
               </span>
               <span className="text-[11px] text-amber-200/90">
-                Fenêtre de reconnexion en cours ({disconnectGrace.secondsLeft}s)... Reprise automatique dès retour
+                Reconnection grace window active ({disconnectGrace.secondsLeft}s)... Resuming automatically on return
               </span>
             </div>
             <button
               onClick={onBack}
               className="ml-2 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold font-arcade transition"
             >
-              Quitter
+              Leave
             </button>
           </div>
         )}
@@ -758,12 +758,12 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
         {!disconnectGrace?.active && opponentDisconnected && !isWaitingOpponent && !isGameOver && (
           <div className="absolute top-4 left-1/2 -translate-x-1/2 z-40 bg-rose-950/90 border border-rose-500/50 text-rose-200 px-4 py-2.5 rounded-2xl shadow-2xl flex items-center gap-3 backdrop-blur-md">
             <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping" />
-            <span className="text-xs font-bold font-arcade">Adversaire parti ou délai de 30s expiré. Match clos.</span>
+            <span className="text-xs font-bold font-arcade">Challenger left or 30s timeout expired. Match ended.</span>
             <button
               onClick={onBack}
               className="px-2.5 py-1 rounded-lg bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold font-arcade transition"
             >
-              Quitter
+              Leave
             </button>
           </div>
         )}
@@ -776,10 +776,10 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
                 <Users className="w-8 h-8" />
               </div>
               <h3 className="text-2xl font-black font-arcade text-white tracking-wider">
-                EN ATTENTE DU 2ÈME JOUEUR
+                WAITING FOR OPPONENT
               </h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Partagez ce code ou envoyez directement le lien à votre adversaire pour démarrer le match !
+                Share this room code or send the direct invite link to your challenger to begin the match!
               </p>
 
               {/* Share Code & Direct Link */}
@@ -793,7 +793,7 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 text-xs font-bold font-arcade border border-slate-700 transition"
                   >
                     {copiedCode ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                    {copiedCode ? 'Copié !' : 'Copier Code'}
+                    {copiedCode ? 'Copied!' : 'Copy Code'}
                   </button>
                 </div>
 
@@ -802,7 +802,7 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
                   className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white text-xs font-bold font-arcade shadow-lg transition active:scale-95"
                 >
                   {copiedLink ? <Check className="w-4 h-4 text-emerald-300" /> : <Share2 className="w-4 h-4" />}
-                  {copiedLink ? 'Lien d\'invitation copié !' : 'Copier le Lien Direct d\'Invitation'}
+                  {copiedLink ? 'Invite link copied!' : 'Copy Direct Invite Link'}
                 </button>
               </div>
 
@@ -811,7 +811,7 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
                   onClick={startSoloGame}
                   className="text-xs text-slate-400 hover:text-white underline underline-offset-4"
                 >
-                  Ou s'entraîner contre l'IA en attendant
+                  Or practice against AI while waiting
                 </button>
               </div>
             </div>
@@ -827,19 +827,19 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
               </div>
               <div>
                 <h3 className="text-3xl font-black font-arcade text-white tracking-wider">
-                  VICTOIRE DE {winnerName.toUpperCase()} !
+                  {winnerName.toUpperCase()} VICTORIOUS!
                 </h3>
-                <p className="text-xs text-slate-400 mt-1">Match Air Hockey Terminé</p>
+                <p className="text-xs text-slate-400 mt-1">Air Hockey Match Complete</p>
               </div>
 
               <div className="grid grid-cols-2 gap-3 py-3 bg-slate-900/90 rounded-2xl p-4 border border-slate-800">
                 <div>
                   <span className="text-xs text-cyan-400 font-bold block truncate">{p1Name}</span>
-                  <p className="text-2xl font-black font-arcade text-white">{score1}</p>
+                  <p className="text-2xl font-black font-arcade text-white tabular-nums">{score1}</p>
                 </div>
                 <div>
                   <span className="text-xs text-pink-400 font-bold block truncate">{p2Name}</span>
-                  <p className="text-2xl font-black font-arcade text-white">{score2}</p>
+                  <p className="text-2xl font-black font-arcade text-white tabular-nums">{score2}</p>
                 </div>
               </div>
 
@@ -847,7 +847,7 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
                 onClick={handlePlayAgain}
                 className="w-full inline-flex items-center justify-center gap-2 py-4 rounded-xl font-bold font-arcade text-sm bg-gradient-to-r from-cyan-500 to-pink-500 hover:from-cyan-600 hover:to-pink-600 text-white shadow-xl shadow-cyan-500/25 transition transform active:scale-95"
               >
-                <RotateCcw className="w-4 h-4" /> REJOUER UNE MANCHE
+                <RotateCcw className="w-4 h-4" /> PLAY REMATCH
               </button>
             </div>
           </div>
@@ -857,7 +857,7 @@ export const NeonAirHockey: React.FC<NeonAirHockeyProps> = ({
       {/* Quick Reaction Emoji Bar */}
       <div className="flex items-center justify-between w-full mt-4 p-2.5 rounded-2xl bg-slate-900/70 border border-slate-800">
         <span className="text-[11px] font-bold font-arcade uppercase text-slate-400 px-2">
-          Réactions en direct:
+          Live Reactions:
         </span>
         <div className="flex items-center gap-2">
           {['🔥', '👑', '⚡', '🎯', '💀', '😎'].map(emoji => (

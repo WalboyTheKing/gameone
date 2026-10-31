@@ -3,3 +3,4 @@ dist
 .env
 .dev.env.json
 .dev.pid
+bun.lock

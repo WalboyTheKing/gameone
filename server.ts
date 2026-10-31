@@ -145,10 +145,10 @@ function loadPersistentData() {
   // If initial store is empty, seed realistic competitive records
   if (leaderboard.size === 0) {
     const seedLeaderboard: LeaderboardEntry[] = [
-      { username: 'CyberPhantom', avatar: '⚡', wins: 18, matches: 21, goals: 74, winrate: 86, lastActive: 'Aujourd\'hui' },
-      { username: 'NeonStriker', avatar: '👑', wins: 15, matches: 19, goals: 62, winrate: 79, lastActive: 'Aujourd\'hui' },
-      { username: 'QuantumAce', avatar: '🚀', wins: 12, matches: 16, goals: 48, winrate: 75, lastActive: 'Hier' },
-      { username: 'PulseViper', avatar: '🔥', wins: 9, matches: 14, goals: 39, winrate: 64, lastActive: 'Hier' },
+      { username: 'CyberPhantom', avatar: '⚡', wins: 18, matches: 21, goals: 74, winrate: 86, lastActive: 'Today' },
+      { username: 'NeonStriker', avatar: '👑', wins: 15, matches: 19, goals: 62, winrate: 79, lastActive: 'Today' },
+      { username: 'QuantumAce', avatar: '🚀', wins: 12, matches: 16, goals: 48, winrate: 75, lastActive: 'Yesterday' },
+      { username: 'PulseViper', avatar: '🔥', wins: 9, matches: 14, goals: 39, winrate: 64, lastActive: 'Yesterday' },
     ];
     for (const item of seedLeaderboard) {
       leaderboard.set(item.username, item);
@@ -277,7 +277,7 @@ setInterval(() => {
             type: 'forfeit_timeout',
             forfeitedUser: player.username,
             winnerRole: opponent.role,
-            message: `${player.username} ne s'est pas reconnecté sous 30s. Victoire par forfait accordée!`,
+            message: `${player.username} did not reconnect within 30s. Victory by forfeit awarded!`,
           });
         }
         delete room.players[player.id];
@@ -565,7 +565,7 @@ wss.on('connection', (ws: WebSocket) => {
         const gameType = msg.gameType === 'pong' ? 'pong' : 'hockey';
         const roomId = (gameType === 'pong' ? 'PONG-' : 'AIR-') + Math.floor(100 + Math.random() * 900);
         const rawName = typeof msg.name === 'string' ? msg.name.trim().slice(0, 25) : '';
-        const name = rawName || `Arène ${gameType === 'pong' ? 'Pong' : 'Hockey'}`;
+        const name = rawName || `${gameType === 'pong' ? 'Pong' : 'Hockey'} Arena`;
         const maxScore = Math.max(1, Math.min(20, Math.floor(Number(msg.maxScore) || 5)));
         const username = typeof msg.username === 'string' && msg.username.trim() ? msg.username.trim().slice(0, 18) : 'Host Pilot';
         const avatar = typeof msg.avatar === 'string' && msg.avatar.trim() ? msg.avatar.slice(0, 4) : '🤖';
@@ -628,7 +628,7 @@ wss.on('connection', (ws: WebSocket) => {
         const cleanRoomId = typeof msg.roomId === 'string' ? msg.roomId.trim().toUpperCase() : '';
         const room = rooms.get(cleanRoomId);
         if (!room) {
-          ws.send(JSON.stringify({ type: 'error', message: 'Salon introuvable ou déjà expiré.' }));
+          ws.send(JSON.stringify({ type: 'error', message: 'Room not found or already expired.' }));
           return;
         }
 

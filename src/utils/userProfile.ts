@@ -26,11 +26,11 @@ const COOL_STARTER_NAMES = [
 ];
 
 const TITLES = [
-  'Recrue Cyber',
-  'Pilote d\'Élite',
-  'Maître de l\'Arène',
-  'Seigneur du Palet',
-  'Légende Invicible',
+  'Cyber Recruit',
+  'Elite Pilot',
+  'Arena Master',
+  'Puck Lord',
+  'Invincible Legend',
 ];
 
 export const getRandomStarterName = (): string => {
@@ -56,7 +56,7 @@ export const getUserProfile = (): UserProfile => {
     id: 'user_' + Math.random().toString(36).substring(2, 9),
     username: getRandomStarterName(),
     avatar: DEFAULT_AVATARS[Math.floor(Math.random() * DEFAULT_AVATARS.length)],
-    title: 'Recrue Cyber',
+    title: 'Cyber Recruit',
     hasChosenNickname: false,
     stats: {
       matchesPlayed: 0,

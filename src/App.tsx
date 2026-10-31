@@ -189,7 +189,7 @@ export const App: React.FC = () => {
               }}
               className="hover:text-cyan-400 transition-colors whitespace-nowrap shrink-0"
             >
-              Arène 1v1
+              1v1 Arena
             </button>
             <button
               onClick={() => {
@@ -197,7 +197,7 @@ export const App: React.FC = () => {
               }}
               className="hover:text-cyan-400 transition-colors whitespace-nowrap shrink-0"
             >
-              Jeux Solo
+              Solo Games
             </button>
             <button
               onClick={() => {
@@ -205,7 +205,7 @@ export const App: React.FC = () => {
               }}
               className="hover:text-cyan-400 transition-colors whitespace-nowrap shrink-0"
             >
-              Classement
+              Leaderboard
             </button>
             <button
               onClick={() => {
@@ -213,7 +213,7 @@ export const App: React.FC = () => {
               }}
               className="hover:text-cyan-400 transition-colors whitespace-nowrap shrink-0"
             >
-              Trophées
+              Trophies
             </button>
           </nav>
 
@@ -224,22 +224,22 @@ export const App: React.FC = () => {
                 onClick={handleQuickMatch}
                 className="px-4 py-2 text-xs font-bold font-arcade text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-lg transition-colors whitespace-nowrap shrink-0 shadow-sm shadow-cyan-400/20"
               >
-                Matchmaking Rapide
+                Quick Match
               </button>
             ) : (
               <button
                 onClick={handleBackToDashboard}
                 className="px-3.5 py-1.5 text-xs font-bold font-arcade text-cyan-400 bg-slate-900 hover:bg-slate-800 rounded-lg border border-cyan-500/40 transition-colors whitespace-nowrap shrink-0"
               >
-                ← Retour Menu
+                ← Back to Menu
               </button>
             )}
 
             <button
               onClick={() => setIsProfileOpen(true)}
               className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-sm hover:border-cyan-500/50 transition-colors"
-              title="Profil joueur"
-              aria-label="Profil joueur"
+              title="Player Profile"
+              aria-label="Player Profile"
             >
               {userProfile.avatar}
             </button>
@@ -357,11 +357,11 @@ export const App: React.FC = () => {
       {/* Footer */}
       <footer className="w-full border-t border-slate-900 py-6 text-center text-xs text-slate-500 bg-slate-950/60">
         <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span>NEON ARCADE · Propulsé par Walboy The King</span>
+          <span>NEON ARCADE · Built by Walboy The King</span>
           <div className="flex items-center gap-4 text-slate-500">
-            <span>60 FPS Autoritaire</span>
+            <span>Authoritative 60 FPS</span>
             <span aria-hidden="true">·</span>
-            <span>Salons Privés WebSocket</span>
+            <span>WebSocket Private Rooms</span>
           </div>
         </div>
       </footer>
